@@ -1,0 +1,102 @@
+
+<?php
+$data = $this->params['data'];
+$paginator = $this->params['paginator'];
+$counter = 0;
+$count = count($data);
+?>
+
+<form id="dataTable-form" method="post" action="<?php echo $this->url(array(), 'categories-delete'); ?>">
+
+    <table class="table table-bordered table-hover">
+
+        <tr>
+            <?php if ($count): ?>
+                <td>
+                    <div>
+                        <input class="btn btn-warning" type="submit" name="multipleDelete" value="Usuń wiele" onclick="if (confirm('Czy na pewno usunąć?')) {
+                                    document.form.submit();
+                                }
+                                return false;" />
+                    </div>
+                    <input id="select-all" type="checkbox" name="select-all" value="" />
+                </td>
+            <?php endif; ?>
+            <td>
+                <p>Tytuł</p>
+            </td>
+            <td>
+                <p>Status</p>
+            </td>
+            <td>
+                <p>Data utworzenia</p>
+            </td>
+            <td colspan="2">
+                <p>Opcje</p>
+            </td>
+        </tr>
+
+        <tbody>
+            <?php if (!empty($data)): ?>
+
+                <?php while ($d = each($data)): ?>
+
+                    <tr>
+                        <td>
+
+                            <input type="checkbox" name="toDelete[]" value="<?php echo $d['value']['id']; ?>" />
+                        </td>
+                        
+                        <td>
+
+                            <a title="Edytuj" style="width: 100%;" class="btn btn-info" 
+                               href="<?php echo $this->url(array('id' => $d['value']['id']), 'categories-edit'); ?>">
+                                   <?php echo strlen($d['value']['name']) > 50 ? substr($d['value']['name'], 0, 50) . ' ...' : $d['value']['name']; ?>
+                            </a>
+                        </td>
+                        <td>
+                            <p>
+                                <?php echo $d['value']['status']; ?>
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <?php echo date('Y-m-d H:i', $d['value']['date_created']); ?>
+                            </p>
+                        </td>
+
+                        <td>
+                            <a title="Usuń" href="<?php echo $this->url(array('id' => $d['value']['id']), 'categories-delete'); ?>" onclick="if (confirm('Czy na pewno usunąć?')) {
+                                                document.location = this.href;
+                                            }
+                                            return false;">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a title="Edytuj" href="<?php echo $this->url(array('id' => $d['value']['id']), 'categories-edit'); ?>">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                <?php endwhile; ?>
+
+            <?php else: ?>
+
+                <tr>
+                    <td colspan="6">Brak danych.</td>
+                </tr>
+
+            <?php endif; ?>
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="7"><?php echo $paginator; ?></td>
+            </tr>
+        </tfoot>
+    </table>
+
+</form>

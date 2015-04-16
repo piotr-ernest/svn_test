@@ -1,0 +1,207 @@
+
+<?php
+$a = $this->article[0];
+//desc($a);
+//desc($this->comments);
+?>
+
+<div class="row">
+    <div class="col-sm-12">
+        <?php //echo $this->breadCrumbs($this->bc);  ?>
+    </div>
+</div>
+
+<?php if (!empty($a['photo'])): ?>
+    <div class="row">
+        <div class="col-sm-8 wrapper">
+            <div class="img-wrapper">
+
+                <a href="javascript:void(0)">
+                    <img src="<?php echo $this->imageSrc($a['photo']); ?>" class="thumbnail" width="100%" />
+
+                    <?php if (!empty($a['label'])): ?>
+                        <div class="article-label">
+                            <?php echo $a['label']; ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="title opacity-70">
+                        <h2><?php echo $a['title']; ?></h2>
+                    </div>
+                    <div id="grey-smog-box" class="grey-smog"></div>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="col-sm-4 wrapper">
+            <img src="#" width="80%" height="100%" />
+        </div>
+
+    </div>
+<?php endif; ?>
+
+<div class="row">
+
+    <div class="col-sm-8">
+
+        <div class="row">
+            <div class="article-title">
+                <?php if (!empty($a['date_published'])): ?>
+                    <div class="col-sm-2">
+                        <p>
+                            <i class="fa fa-calendar"></i>
+                            <?php echo date('Y-m-d', $a['date_published']) ?>
+                        </p>
+                    </div>
+                <?php endif; ?>
+                <div class="col-sm-10" style="text-align: right;">
+                    <h3>
+                        <i class="fa fa-coffee"></i>
+                        <?php echo $this->escape($a['title']); ?>
+                    </h3>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="article-subtitle">
+                    <p style="font-weight: bold;">
+                        <?php echo $this->escape($a['subtitle']); ?>
+                    </p>
+                </div>
+
+                <div class="well">
+                    <?php echo $a['content']; ?>
+                </div>
+
+            </div>
+
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3" style="margin-bottom: 20px;">
+                        <a class="btn btn-block btn-default" href="javascript:void(0)" id="comments">KOMENTARZE</a>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-sm-8 col-sm-offset-2" id="form-wrapper">
+
+                            <?php if (!empty($this->form_errors) || !empty($this->form_messages)): ?>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <?php if (!empty($this->form_errors)): ?>
+                                            <p style="text-align: center; font-size: 10px; color: red;"><?php echo $this->form_errors; ?></p>
+                                        <?php endif; ?>
+
+                                        <?php if (!empty($this->form_messages)): ?>
+                                            <p style="text-align: center; font-size: 10px;"><?php echo $this->form_messages; ?></p>
+                                        <?php endif; ?>
+
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <?php echo $this->form; ?>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <?php if (!empty($this->comments)): ?>
+
+                        <?php while ($c = each($this->comments)): ?>
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1">
+                                    <hr>
+                                    <p style="font-weight: bolder;">
+                                        <?php echo $this->escape($c['value']['title']); ?>
+                                    </p>
+                                    <p style="font-size: 10px; color: #999999;">
+                                        <span>
+                                            <?php echo 'Autor: ' . $c['value']['customer_username'] . ', dnia: ' . date('Y:m:d H:i', $c['value']['date_created']); ?>
+                                        </span>
+                                    </p>
+                                    <textarea readonly="readonly" class="comments-textarea-output" rows="7">
+                                        <?php echo $this->escape($c['value']['content']); ?>
+                                    </textarea>
+                                </div>
+                            </div>
+
+                        <?php endwhile; ?>
+
+                        <div class="row">
+                            <div class="col-sm-8" style="margin-bottom: 20px; margin-top: 20px; margin-left: 10px;">
+                                <div class="pagination-box">
+                                    <?php echo $this->pagination; ?>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                    <?php else: ?>
+                        <h3>Brak komentarzy</h3>
+                    <?php endif; ?>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--REKLAMA-->
+    <div class="col-sm-4">
+        <img src="#" width="80%" height="1500" />
+    </div>
+
+
+</div>
+
+<?php echo $this->scrollDownTo('#commentsForm', $this->scroll); ?>
+
+<?php
+if (Zend_Auth::getInstance()->hasIdentity()) {
+    $identity = Zend_Auth::getInstance()->getIdentity();
+} else {
+    $identity = null;
+}
+?>
+
+<script>
+
+    var identity = '<?php echo $identity; ?>';
+
+    $(document).ready(function () {
+
+        if (!identity) {
+            $('#comments-text').click(function () {
+                $(this).val('Aby komentować należy się zalogować.');
+            });
+
+            $('#comments-textarea').click(function () {
+                $(this).val('Aby komentować należy się zalogować.');
+            });
+
+            $('#comments-textarea').click(function () {
+                $(this).val('Aby komentować należy się zalogować.');
+            });
+
+            $('#save-comments').click(function (e) {
+                e.preventDefault();
+                $('#comments-textarea, #comments-text').val('Aby komentować należy się zalogować.');
+            });
+
+        }
+
+    });
+
+</script>
+

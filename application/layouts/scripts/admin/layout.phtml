@@ -1,0 +1,82 @@
+
+<?php
+//Zend_Controller_Front::getInstance()->setBaseUrl('/');
+//$base = Zend_Controller_Front::getInstance()->getBaseUrl();
+//desc($base);
+?>
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <?php echo $this->headTitle('CloutWork Admin'); ?>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans'>
+                <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold"/>
+                <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+Sans:regular,italic,bold,bolditalic"/>
+                <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nixie+One:regular,italic,bold,bolditalic"/>
+                <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+SC:regular,italic,bold,bolditalic"/>-->
+
+        <?php $this->headLink()->prependStylesheet($this->baseUrl('font-awesome-4.3.0/css/font-awesome.min.css', 'screen')); ?>
+        <?php $this->headLink()->prependStylesheet($this->baseUrl('bootstrap-3.2.0-dist/css/bootstrap.min.css', 'screen')); ?>
+        <?php $this->headLink()->prependStylesheet($this->baseUrl('jquery-ui-1.11.4/jquery-ui.css', 'screen')); ?>
+        <?php $this->headLink()->prependStylesheet($this->baseUrl('css/mainStyle.css', 'screen')); ?>
+        <?php echo $this->headLink() ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('jquery/jquery-1.11.js')); ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('bootstrap-3.2.0-dist/js/bootstrap.min.js')); ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('jquery-ui-1.11.4/jquery-ui.js')); ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('js/mainScript.js')); ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('js/modal.js')); ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('tinymce/js/tinymce/tinymce.min.js')); ?>
+        <?php echo $this->headScript() ?>
+    </head>
+    <body>
+
+
+        <div class="container-fluid">
+
+            <?php echo $this->render('header.phtml'); ?>
+
+            <div class="row">
+
+
+
+                <?php $counter = 0; ?>
+
+                <div class="col-sm-2 col-sm-offset-0 left-container">
+
+
+                    <?php foreach (Zend_Registry::get('modules') as $key => $val): ?>
+
+                        <?php if ($val->show): ?>
+                            <?php $counter++; ?>
+                            <?php echo $this->panelUnit($val, $counter); ?>
+
+                        <?php endif; ?>
+
+                    <?php endforeach; ?>
+
+
+                </div>
+
+                <div class="col-sm-10">
+                    <?php echo $this->layout()->content; ?>
+                </div>
+
+
+            </div>
+
+            <?php echo $this->render('footer.phtml'); ?>
+
+        </div>
+
+        <?php echo $this->tinymce(); ?>
+        
+        
+
+
+    </body>
+</html>

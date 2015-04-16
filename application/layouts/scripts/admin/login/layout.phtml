@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <?php echo $this->headTitle('Logowanie do panelu'); ?>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans'>
+                <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold"/>
+                <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+Sans:regular,italic,bold,bolditalic"/>
+                <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nixie+One:regular,italic,bold,bolditalic"/>
+                <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+SC:regular,italic,bold,bolditalic"/>-->
+
+        <link rel="stylesheet" href="<?php echo $this->baseUrl('font-awesome-4.3.0/css/font-awesome.min.css'); ?>">
+
+        <?php $this->headLink()->prependStylesheet($this->baseUrl('bootstrap-3.2.0-dist/css/bootstrap.min.css', 'screen')); ?>
+        <?php $this->headLink()->prependStylesheet($this->baseUrl('jquery-ui-1.11.4/jquery-ui.css', 'screen')); ?>
+        <?php $this->headLink()->prependStylesheet($this->baseUrl('css/mainStyle.css', 'screen')); ?>
+        <?php echo $this->headLink() ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('jquery/jquery-1.11.js')); ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('bootstrap-3.2.0-dist/js/bootstrap.min.js')); ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('jquery-ui-1.11.4/jquery-ui.js')); ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('js/mainScript.js')); ?>
+        <?php echo $this->headScript() ?>
+    </head>
+    <body>
+
+
+
+        <div class="container-fluid">
+
+            <?php echo $this->render('header.phtml'); ?>
+            <hr>
+            <div class="row">
+                <?php echo $this->layout()->content; ?>
+            </div>
+            <hr>
+        </div>
+
+        <?php //echo $this->footer(); ?>
+
+
+
+    </body>
+</html>

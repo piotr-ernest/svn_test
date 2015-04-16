@@ -1,0 +1,26 @@
+
+
+<?php if (!empty($this->categories)): ?>
+
+    <div class="btn-toolbar">
+
+        <?php if(!$this->sg):?>
+        <div class="btn-group">
+            <a href="<?php echo $this->url(array(), 'home'); ?>" class="btn btn-info">Strona Główna</a>
+        </div>
+        <?php endif; ?>
+        
+        <div class="btn-group">
+
+            <?php while ($c = each($this->categories)): ?>
+                <a href="<?php echo $this->categoryUrl($c['value']['id']); ?>" class="btn btn-default <?php echo ($c['value']['id'] === $this->id) ? 'active' : ''; ?>">
+                    <?php echo $c['value']['name'] ?>
+                </a>
+            <?php endwhile; ?>
+
+        </div>
+
+
+    </div>
+
+<?php endif; ?>

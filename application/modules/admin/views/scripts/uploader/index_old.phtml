@@ -1,0 +1,139 @@
+
+<style type="text/css">
+
+    body {
+        background: #ccccff;
+    }
+
+    .path {
+        //margin-bottom: 10px;
+        background: whitesmoke;
+        padding: 5px;
+        border: 1px solid #666666;
+        //display: none;
+        color: #006666;
+        font-size: 15px;
+        z-index: 999;
+        //float: none;
+    }
+
+    .elem {
+        padding: 2px;
+        margin-right: 10px;
+        z-index: 9;
+        border: 1px solid #666666;
+        border-radius: 5px;
+        clear: both;
+    }
+
+    #output {
+        position: relative;
+        top: 10px;
+        left: 10%;
+        width: 80%;
+        text-align: center;
+        background: whitesmoke;
+        padding: 5px;
+        border: 1px solid #666666;
+        border-radius: 5px;
+        min-height: 20px;
+    }
+
+
+
+</style>
+
+<div>
+    <?php if (isset($this->message)): ?>
+        <div class="row">
+            <div>
+
+                <?php echo $this->message; ?>
+
+            </div>
+        </div> 
+    <?php endif; ?>
+
+    <?php if (isset($this->errors)): ?>
+        <?php while ($e = each($this->errors)): ?>
+            <div class="row">
+                <?php echo $e['value']; ?>
+            </div> 
+        <?php endwhile; ?>
+    <?php endif; ?>
+
+    <div class="row">
+        <h2>Uploader</h2>
+
+        <div style="border-bottom: 1px solid #666666;">
+            <?php echo $this->form; ?>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <h2>Pliki w folderze images:</h2>
+
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <p id="output"></p>
+            </div>
+        </div>
+
+        <?php if (isset($this->list)): ?>
+
+            <div class="col-sm-2 col-sm-offset-1">
+                <?php while ($elem = each($this->list)): ?>
+                    <div class="elem">
+                        <div class="thumb">
+                            <img class="thumbnail" src="<?php echo $this->url . '/files/thumbs/' . $elem['value']; ?>" />
+                        </div>
+
+                        <p class="path"><?php echo $this->url . '/files/images/' . $elem['value']; ?></p>
+                        
+                        <form id="formDel" method="post" action="<?php echo $this->url(array(), 'uploader-delete'); ?>">
+                            <input type="hidden" name="delete" value="<?php echo $elem['value']; ?>" />
+                            <input type="submit" name="toDelete" value="Usuń" onclick="if (confirm('Czy na pewno usunąć?')) {document.form.submit();} else {return false;};" />
+                                
+                        </form>
+
+                    </div>
+                <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
+
+    </div>
+
+
+</div>
+
+<script type="text/javascript" src="<?php echo $this->baseUrl('jquery/jquery-1.11.js'); ?>"></script>
+
+<script type="text/javascript">
+
+    var clicked = false;
+
+    $(document).ready(function () {
+
+        $('.elem').click(function () {
+
+            if (clicked) {
+                //$(this).children('.path').hide();
+                clicked = false;
+            } else {
+                //$(this).children('.path').show();
+                var info = $(this).children('.path').text();
+                $('#output').text(info);
+                clicked = true;
+            }
+
+
+        });
+
+
+
+    });
+
+
+
+</script>

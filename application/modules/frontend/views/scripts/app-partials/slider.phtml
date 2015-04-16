@@ -1,0 +1,52 @@
+
+<?php
+$id = $this->id;
+?>
+
+<div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+
+    <div class="<?php echo $this->class; ?>">
+        
+        <div id="<?php echo 'carousel-' . $id; ?>" class="carousel slide" data-ride="carousel">
+            <!-- Wskaźniki w postaci kropek -->
+            <ol class="carousel-indicators">
+                <?php for($i = 0; $i < count($this->files); $i++): ?>
+                <li data-target="#<?php echo 'carousel-' . $id; ?>" 
+                    data-slide-to="<?php echo $i; ?>" <?php echo ($i == 0)? 'class="active"' : ''; ?>>
+                        
+                </li>
+                <?php endfor; ?>
+            </ol>
+
+
+
+            <!-- Slajdy -->
+            <div class="carousel-inner" role="listbox">
+                <?php for ($i = 0; $i < count($this->files); $i++): ?>
+                <div class="<?php echo ($i == 0)? 'item active' : 'item'; ?>">
+                    <img style="width:900px; height: 300px;" src="<?php echo $this->baseUrl($this->dir . $this->files[$i]); ?>" alt=""/>
+                        <!-- Opis slajdu -->
+                        <?php if(null !== $this->description): ?>
+                        <div class="carousel-caption">
+                            <h3><?php echo $this->description[$i]['title']; ?></h3>
+                            <p><?php echo $this->description[$i]['details']; ?></p>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endfor; ?>
+            </div>
+
+
+
+            <!-- Strzałki do przewijania -->
+            <a onclick="return false;" class="left carousel-control" href="#<?php echo 'carousel-' . $id; ?>" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a onclick="return false;" class="right carousel-control" href="#<?php echo 'carousel-' . $id; ?>" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+        </div>
+
+    </div>
+
+</div>

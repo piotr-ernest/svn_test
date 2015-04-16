@@ -1,0 +1,28 @@
+
+
+
+<div style="position: absolute; width: 40%; left: 30%;">
+
+    <form enctype="multipart/form-data" method="post" action="<?php echo $this->url(array('controller' => $this->controller, 'action' => $this->action)); ?>">
+        <div style="margin: 20px;">
+            <label>Wybierz plik:</label>
+        </div>
+        <div style="margin: 20px;">
+            <input type="file" name="file" id="file" />
+        </div>
+
+        <div style="margin: 20px;">
+            <label>Wpisz nową nazwę dla pliku:</label>
+        </div>
+        <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $this->sizeLimit ?>" />
+        <div style="margin: 20px;">
+            <input type="text" name="newname" id="newname" />
+        </div>
+
+        <div style="margin: 20px;">
+            <input type="submit" name="send" id="send" value="Wyślij" />
+        </div>
+
+    </form>
+
+</div>

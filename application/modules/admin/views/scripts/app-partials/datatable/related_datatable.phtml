@@ -1,0 +1,130 @@
+
+<?php
+$data = $this->params['data'];
+$paginator = $this->params['paginator'];
+$counter = 0;
+$count = count($data);
+
+$rowCats = $this->params['categories'];
+$index = array(array('id' => 0, 'name' => '-- Wybierz kategorię --'));
+$categories = array_merge($index, $rowCats);
+$name = $this->params['name-sort'];
+$category = $this->params['category-sort'];
+?>
+
+
+<form name="dataTable_form_sort" id="dataTable_form_sort" method="post" action="<?php echo $this->url(array(), 'related-sort'); ?>">
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <td>
+                <h4>Wyszukiwanie po nazwie</h4>
+                <input value="<?php echo isset($name)? $name : ''; ?>" class="form-control" type="text" id="name-sort" name="name-sort" placeholder="-- Wpisz nazwę artykułu --" />
+            </td>
+
+            <td>
+                <h4>Wyszukiwanie po kategorii</h4>
+                <select class="form-control" id="category-sort" name="category-sort">
+                    <?php if (!empty($categories)): ?>
+                        <?php while ($cat = each($categories)): ?>
+                            <option <?php echo $category == $cat['value']['id'] ? 'selected="selected"' : ''; ?> value="<?php echo $cat['value']['id'] ?>"><?php echo $cat['value']['name']; ?></option>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </select>
+            </td>
+
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input class="btn btn-info" id="sort-submit" type="submit" name="sort-submit" value="Szukaj" />
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2">
+                <a href="<?php echo $this->url(array('page' => 1, 'category-sort' => 0, 'name-sort' => ''), 'related'); ?>" class="btn btn-info" id="sort-clear">Wyczyść filtry</a>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+
+
+<form id="dataTable-form" method="post" action="<?php echo $this->url(array(), 'related'); ?>">
+
+    <table class="table table-bordered table-hover">
+
+        <tr>
+            <?php if ($count): ?>
+                
+            <?php endif; ?>
+            <td>
+                <p>Tytuł</p>
+            </td>
+            <td>
+                <p>Status</p>
+            </td>
+            <td>
+                <p>Data publikacji</p>
+            </td>
+            <td>
+                <p>Opcje</p>
+            </td>
+        </tr>
+
+        <tbody>
+            <?php if (!empty($data)): ?>
+
+                <?php while ($d = each($data)): ?>
+
+                    <tr>
+                        
+                        
+                        <td>
+
+                            <a title="Edytuj" style="width: 100%;" class="btn btn-info" 
+                               href="<?php echo $this->url(array('id' => $d['value']['id'], 'page' => $this->params['page'], 'category-sort' => $category, 'name-sort' => $name), 'related-edit'); ?>">
+                                   <?php echo strlen($d['value']['title']) > 50 ? substr($d['value']['title'], 0, 50) . ' ...' : $d['value']['title']; ?>
+                            </a>
+                        </td>
+                        <td>
+                            <p>
+                                <?php echo $d['value']['status']; ?>
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <?php echo date('Y-m-d H:i', $d['value']['date_published']); ?>
+                            </p>
+                        </td>
+
+                        
+                        <td>
+                            <a title="Edytuj" href="<?php echo $this->url(array('id' => $d['value']['id'], 'page' => $this->params['page'], 'category-sort' => $category, 'name-sort' => $name), 'related-edit'); ?>">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                <?php endwhile; ?>
+
+            <?php else: ?>
+
+                <tr>
+                    <td colspan="4">Brak danych.</td>
+                </tr>
+
+            <?php endif; ?>
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="4"><?php echo $paginator; ?></td>
+            </tr>
+        </tfoot>
+    </table>
+
+</form>

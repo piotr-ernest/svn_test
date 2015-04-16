@@ -1,0 +1,150 @@
+<?php ?>
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <?php $this->headLink()->prependStylesheet($this->baseUrl('bootstrap-3.2.0-dist/css/bootstrap.min.css'), 'screen') ?>
+        <?php $this->headLink()->prependStylesheet($this->baseUrl('css/mainStyle.css'), 'screen') ?>
+        <?php echo $this->headLink() ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('jquery/jquery-1.11.js')) ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('bootstrap-3.2.0-dist/js/bootstrap.min.js')) ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('js/mainScript.js')) ?>
+        <?php $this->headScript()->appendFile($this->baseUrl('js/modal.js')); ?>
+        <?php echo $this->headScript() ?>
+
+        <style type="text/css">
+
+            .wrapper {
+                position: relative;
+                top: 0px;
+                left: 0px;
+                height: 200px;
+                box-shadow: 1px 1px 2px #999999;
+                float: left;
+                overflow: auto;
+                margin: 10px;
+                padding: 5px;
+            }
+
+            .imgWrapper {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+        </style>
+
+    </head>
+    <body>
+
+        <div class="container">
+
+            <?php if (isset($this->message)): ?>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>
+                            <?php echo $this->message; ?>
+                        </p>
+
+
+                    </div>
+                </div> 
+            <?php endif; ?>
+
+            <?php if (isset($this->errors)): ?>
+                <?php while ($e = each($this->errors)): ?>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>
+                                <?php echo $e['value']; ?>
+                            </p>
+
+                        </div>
+                    </div> 
+                <?php endwhile; ?>
+            <?php endif; ?>
+
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <h3>Import i obróbka obrazków</h3>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <?php echo $this->form; ?>
+                </div>
+
+            </div>
+
+            <?php if ($this->photoName && file_exists(ROOT . '/public/frontend/files/articles/' . $this->photoName)): ?>
+
+                <div class="row">
+                    <h3>Bieżący obraz:</h3>
+                    <div class="col-sm-5">
+                        <img id="php-source" class="thumbnail" src="<?php echo $this->frontendUrl . '/files/articles/' . $this->photoName; ?>" width="100%" />
+                    </div>
+
+                    <div class="col-sm-5">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!--<a href="<?php //echo $this->url(array('img-name' => $this->photoName), 'images-save');  ?>" class="btn btn-default">Zapisz</a>-->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            <?php else: ?>
+                <h3 style="color: #ff0000;">Brak obrazka dla artykułu.</h3>
+            <?php endif; ?>
+
+            <?php if (!empty($this->list)): ?>
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <h3>Z katalogu:</h3>
+                        <div class="row">
+                            <?php while ($img = each($this->list)): ?>
+                                <div class="col-sm-2 panel wrapper">
+                                    <div class="imgWrapper">
+                                        <a href="<?php echo $this->url(array('img-name' => $img['value']), 'images'); ?>">
+                                            <img class="source" width="200" src="<?php echo $this->frontendUrl . '/files/articles/' . $img['value']; ?>" />
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
+
+                    </div>
+                </div>
+
+            <?php endif; ?>
+
+
+
+        </div>
+
+        <script>
+
+            var imagename = '<?php echo $this->photoName; ?>';
+            $(document).ready(function () {
+
+//                $('#save-image').click(function () {
+//                    alert('ok');
+//                    var name = $('iframe[name=select_frame]').contents().find('#select_name').val();
+//                });
+
+            });
+
+        </script>
+
+
+    </body>
+</html>
