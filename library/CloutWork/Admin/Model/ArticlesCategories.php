@@ -35,7 +35,7 @@ class CloutWork_Admin_Model_ArticlesCategories extends Zend_Db_Table_Abstract
     public function getCategoryNameById($id)
     {
         $sql = $this->select()
-                ->from($this->_name, array('name'))
+                ->from($this->_name, array('name', 'status'))
                 ->where($this->getAdapter()->quoteInto('id = ?', $id))
                 ->order('id DESC');
         return $this->getAdapter()->query($sql)->fetch();

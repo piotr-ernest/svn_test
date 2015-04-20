@@ -85,8 +85,8 @@ class CloutWork_Admin_Form_ArticlesCategories extends Zend_Form
                        'Brudnopis',
                        'Opublikowany'
                     ))
-                    ->setAttrib('class', 'radio')
-                    ->setValue(0),
+                    ->setAttrib('class', 'radio'),
+                    //->setValue(0),
             
                     $this->createElement('submit', 'Wyślij')
                     ->setAttrib('class', 'btn btn-info')

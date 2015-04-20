@@ -1,0 +1,139 @@
+
+<?php
+$data = $this->params['data'];
+$paginator = $this->params['paginator'];
+$counter = 0;
+$count = count($data);
+$params = $this->params;
+?>
+
+<form name="dataTable_form_sort" id="dataTable_form_sort" method="post" action="<?php echo $this->url(array(), 'comments-sort'); ?>">
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <td>
+                <h4>Wyszukiwanie według nazwy użytkownika</h4>
+                <input value="<?php echo isset($params['author'])? $params['author'] : ''; ?>" class="form-control" type="text" id="author" name="author" placeholder="-- Wpisz nick użytkownika --" />
+            </td>
+
+            <td>
+                <h4>Wyszukiwanie według tytułu artykułu</h4>
+                <input value="<?php echo isset($params['title'])? $params['title'] : null; ?>" class="form-control" type="text" id="title" name="title" placeholder="-- Wpisz tytuł artykułu --" />
+            </td>
+            
+            <td>
+                <h4>Wyszukiwanie według daty utworzenia</h4>
+                <input value="<?php echo isset($params['date'])? $params['date'] : null; ?>" class="form-control" type="text" id="date" name="date" placeholder="-- Wybierz datę --" />
+            </td>
+
+        </tr>
+
+        <tr>
+            <td colspan="3">
+                <input class="btn btn-default" id="sort-submit" type="submit" name="sort-submit" value="Szukaj" />
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="3">
+                <a href="<?php echo $this->url(array('page' => 1, 'author' => '', 'date' => '', 'title' => ''), 'comments'); ?>" class="btn btn-default" id="sort-clear">Wyczyść filtry</a>
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+<form id="dataTable-form" method="post" action="<?php echo $this->url(array(), 'articles-delete'); ?>">
+
+    <table class="table table-bordered table-hover">
+
+        <tr>
+            <?php if ($count): ?>
+                <td>
+                    <div>
+                        <input class="btn btn-info" type="submit" name="multipleDelete" value="Usuń kilka" onclick="if (confirm('Czy na pewno usunąć?')) {
+                                        document.form.submit();
+                                    }
+                                    return false;" />
+                    </div>
+                    <input id="select-all" type="checkbox" name="select-all" value="" />
+                </td>
+            <?php endif; ?>
+            <td>
+                <p>Tytuł</p>
+            </td>
+            <td>
+                <p>Status</p>
+            </td>
+            <td>
+                <p>Data publikacji</p>
+            </td>
+            <td colspan="2">
+                <p>Opcje</p>
+            </td>
+        </tr>
+
+        <tbody>
+            <?php if (!empty($data)): ?>
+
+                <?php while ($d = each($data)): ?>
+
+                    <tr>
+                        <td>
+
+                            <input type="checkbox" name="toDelete[]" value="<?php echo $d['value']['id']; ?>" />
+                        </td>
+
+                        <td>
+
+                            <a title="Edytuj" style="width: 100%;" class="btn btn-info" 
+                               href="<?php echo $this->url(array('id' => $d['value']['id'], 'page' => $this->params['page'], 'category-sort' => $category, 'name-sort' => $name), 'articles-edit'); ?>">
+                                   <?php echo strlen($d['value']['title']) > 50 ? substr($d['value']['title'], 0, 50) . ' ...' : $d['value']['title']; ?>
+                            </a>
+                        </td>
+                        <td>
+                            <p>
+                                <?php echo $d['value']['status']; ?>
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                <?php echo date('Y-m-d H:i', $d['value']['date_created']); ?>
+                            </p>
+                        </td>
+
+                        <td>
+                            <a title="Usuń" href="<?php echo $this->url(array('id' => $d['value']['id'], 'page' => $this->params['page'], 'category-sort' => $category, 'name-sort' => $name), 'articles-delete'); ?>" onclick="if (confirm('Czy na pewno usunąć?')) {
+                                                document.location = this.href;
+                                            }
+                                            return false;">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a title="Edytuj" href="<?php echo $this->url(array('id' => $d['value']['id'], 'page' => $this->params['page'], 'category-sort' => $category, 'name-sort' => $name), 'articles-edit'); ?>">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                <?php endwhile; ?>
+
+            <?php else: ?>
+
+                <tr>
+                    <td colspan="6">Brak danych.</td>
+                </tr>
+
+            <?php endif; ?>
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="6"><?php echo $paginator; ?></td>
+            </tr>
+        </tfoot>
+    </table>
+
+</form>

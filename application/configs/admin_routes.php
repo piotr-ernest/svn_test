@@ -5,6 +5,14 @@ return array(
     
     'routes' => array(
         
+        'panel' => array(
+            'route' => '/',
+            'defaults' => array(
+                'controller' => 'panel',
+                'action' => 'index'
+            ),
+        ),
+        
         'login' => array(
             'route' => '/logowanie',
             'defaults' => array(
@@ -274,11 +282,23 @@ return array(
         ),
         
         'comments' => array(
-            'route' => 'comments',
+            'route' => 'comments/page/:page/author/:author/title/:title/date/:date',
             'defaults' => array(
                 'controller' => 'comments',
-                'action' => 'index'
-                
+                'action' => 'index',
+                'page' => 1,
+                'author' => '',
+                'title' => '',
+                'date' => ''
+            ),
+        ),
+        
+        'comments-sort' => array(
+            'route' => 'comments/page/:page',
+            'defaults' => array(
+                'controller' => 'comments',
+                'action' => 'sort',
+                'page' => 1
             ),
         ),
         

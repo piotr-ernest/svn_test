@@ -43,7 +43,9 @@ return array(
                     'route' => '/comments',
                 ),
             ),
-            'marker' => array()
+            'marker' => array(
+                'comments'
+            )
         ),
     ),
 );
