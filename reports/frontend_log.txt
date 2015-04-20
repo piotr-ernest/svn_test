@@ -1945,4 +1945,43 @@ TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Stat
 #11 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\frontend\index.php(46): Zend_Application->run()
 #12 {main}
 TRESC: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'validate' in 'field list', query was: UPDATE `customers` SET `validate` = ? WHERE (id = '22')
+======================================================================================
+DATA: 2015-04-19 11:17:46
+PLIK: E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Acl.php
+LINIA: 365
+TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Acl.php(846): Zend_Acl->get('robots.txt')
+#1 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\library\CloutWork\Plugin\ACL.php(74): Zend_Acl->isAllowed('guest', 'robots.txt', 'index')
+#2 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Plugin\Broker.php(309): CloutWork_Plugin_ACL->preDispatch(Object(Zend_Controller_Request_Http))
+#3 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application\Bootstrap\Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#5 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#6 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\frontend\index.php(46): Zend_Application->run()
+#7 {main}
+TRESC: Resource 'robots.txt' not found
+======================================================================================
+DATA: 2015-04-19 11:17:49
+PLIK: E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Acl.php
+LINIA: 365
+TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Acl.php(846): Zend_Acl->get('favicon.ico')
+#1 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\library\CloutWork\Plugin\ACL.php(74): Zend_Acl->isAllowed('guest', 'favicon.ico', 'index')
+#2 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Plugin\Broker.php(309): CloutWork_Plugin_ACL->preDispatch(Object(Zend_Controller_Request_Http))
+#3 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application\Bootstrap\Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#5 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#6 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\frontend\index.php(46): Zend_Application->run()
+#7 {main}
+TRESC: Resource 'favicon.ico' not found
+======================================================================================
+DATA: 2015-04-19 11:17:54
+PLIK: E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Acl.php
+LINIA: 365
+TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Acl.php(846): Zend_Acl->get('favicon.ico')
+#1 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\library\CloutWork\Plugin\ACL.php(74): Zend_Acl->isAllowed('guest', 'favicon.ico', 'index')
+#2 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Plugin\Broker.php(309): CloutWork_Plugin_ACL->preDispatch(Object(Zend_Controller_Request_Http))
+#3 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Front.php(941): Zend_Controller_Plugin_Broker->preDispatch(Object(Zend_Controller_Request_Http))
+#4 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application\Bootstrap\Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#5 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#6 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\frontend\index.php(46): Zend_Application->run()
+#7 {main}
+TRESC: Resource 'favicon.ico' not found
 ===========================================

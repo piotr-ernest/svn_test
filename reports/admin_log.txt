@@ -139,4 +139,36 @@ TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\mod
 #7 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\admin\index.php(49): Zend_Application->run()
 #8 {main}
 TRESC: No entry is registered for key 'config'
+======================================================================================
+DATA: 2015-04-20 19:28:00
+PLIK: E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Router\Rewrite.php
+LINIA: 325
+TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Router\Rewrite.php(487): Zend_Controller_Router_Rewrite->getRoute('comments')
+#1 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\View\Helper\Url.php(49): Zend_Controller_Router_Rewrite->assemble(Array, 'comments', false, true)
+#2 [internal function]: Zend_View_Helper_Url->url(Array, 'comments')
+#3 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\View\Abstract.php(350): call_user_func_array(Array, Array)
+#4 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\modules\admin\views\scripts\app-partials\panelUnit.phtml(22): Zend_View_Abstract->__call('url', Array)
+#5 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\modules\admin\views\scripts\app-partials\panelUnit.phtml(22): Zend_View->url(Array, 'comments')
+#6 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\View.php(108): include('E:\\PROGRAMY\\xam...')
+#7 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\View\Abstract.php(888): Zend_View->_run('E:/PROGRAMY/xam...')
+#8 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\View\Helper\Partial.php(109): Zend_View_Abstract->render('app-partials/pa...')
+#9 [internal function]: Zend_View_Helper_Partial->partial('app-partials/pa...', NULL, Array)
+#10 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\View\Abstract.php(350): call_user_func_array(Array, Array)
+#11 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\modules\admin\views\helpers\PanelUnit.php(22): Zend_View_Abstract->__call('partial', Array)
+#12 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\modules\admin\views\helpers\PanelUnit.php(22): Zend_View->partial('app-partials/pa...', NULL, Array)
+#13 [internal function]: Zend_View_Helper_PanelUnit->panelUnit(Object(stdClass), 2)
+#14 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\View\Abstract.php(350): call_user_func_array(Array, Array)
+#15 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\layouts\scripts\admin\layout.phtml(56): Zend_View_Abstract->__call('panelUnit', Array)
+#16 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\layouts\scripts\admin\layout.phtml(56): Zend_View->panelUnit(Object(stdClass), 2)
+#17 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\View.php(108): include('E:\\PROGRAMY\\xam...')
+#18 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\View\Abstract.php(888): Zend_View->_run('E:\\PROGRAMY\\xam...')
+#19 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Layout.php(796): Zend_View_Abstract->render('layout.phtml')
+#20 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Layout\Controller\Plugin\Layout.php(143): Zend_Layout->render()
+#21 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Plugin\Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Object(Zend_Controller_Request_Http))
+#22 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Object(Zend_Controller_Request_Http))
+#23 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application\Bootstrap\Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#24 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#25 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\admin\index.php(49): Zend_Application->run()
+#26 {main}
+TRESC: Route comments is not defined
 ===========================================

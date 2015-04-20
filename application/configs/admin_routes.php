@@ -273,5 +273,14 @@ return array(
             ),
         ),
         
+        'comments' => array(
+            'route' => 'comments',
+            'defaults' => array(
+                'controller' => 'comments',
+                'action' => 'index'
+                
+            ),
+        ),
+        
     ),
 );
