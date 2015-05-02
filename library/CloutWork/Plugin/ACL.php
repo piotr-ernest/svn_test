@@ -41,11 +41,11 @@ class CloutWork_Plugin_ACL extends Zend_Controller_Plugin_Abstract
 //            $this->acl->addResource(new Zend_Acl_Resource('index'));
 //            $this->acl->addResource(new Zend_Acl_Resource('start'));
 //            $this->acl->addResource(new Zend_Acl_Resource('test'));
-            
+
             $this->addResources($this->getResources());
             $this->acl->addResource(new Zend_Acl_Resource('public'));
 
-            $this->acl->allow(null, array('error', 'start', 'public', 'categories', 'comments', 'validate'));
+            $this->acl->allow(null, array('error', 'start', 'public', 'categories', 'comments', 'validate', 'comments-ajax'));
             $this->acl->allow(null, 'index', array('unauthorized', 'index', 'show'));
 
 //        $this->acl->allow('member', 'index', array('index'));
@@ -63,7 +63,6 @@ class CloutWork_Plugin_ACL extends Zend_Controller_Plugin_Abstract
             if ($this->auth->hasIdentity()) {
 
                 $role = $this->getRole($this->identity);
-                
             } else {
                 $role = 'guest';
             }
@@ -72,7 +71,7 @@ class CloutWork_Plugin_ACL extends Zend_Controller_Plugin_Abstract
             $action = $request->getActionName();
 
             if (!$this->acl->isAllowed($role, strtolower($ctrl), $action)) {
-                
+
                 if ($role == 'guest') {
                     $request->setControllerName('start');
                     $request->setActionName('choice');
@@ -101,25 +100,39 @@ class CloutWork_Plugin_ACL extends Zend_Controller_Plugin_Abstract
     protected function getResources($module = 'frontend')
     {
         $resourcesPath = Core_Tools::getRootPath() . '/application/modules/frontend/controllers';
-        if($module != 'frontend'){
+        if ($module != 'frontend') {
             $resourcesPath = $module;
         }
-        
+
+        // Jest problem z kamelkami w nazwie kontrolera/zasobu -
+        // Aby Apache nie wyrzucał błędu przy nazwie np: ArticlesRelated (skrypt widoku musi byc w folderze articles-related)
+        // (windows toleruje, *nix już nie)
+        // trzeba wstawić do nazwy zasobu znak - i duże litery zamienić na małe - ACL przyjmuje małe tylko
         $rowFiles = scandir($resourcesPath);
         $files = array();
-        while($rowFile = each($rowFiles)){
-            if($rowFile['value'] != '.' && $rowFile['value'] != '..'){
+        while ($rowFile = each($rowFiles)) {
+            if ($rowFile['value'] != '.' && $rowFile['value'] != '..') {
                 $name = str_replace('Controller', '', $rowFile['value']);
                 $name = str_replace('.php', '', $name);
-                $files[] = strtolower($name);
+                $name = lcfirst($name);
+
+                if (preg_match('/[A-Z]/', $name, $matches, PREG_OFFSET_CAPTURE)) {
+                    while ($match = each($matches)) {
+                        $newname = substr_replace($name, '-', $match['value'][1], 0);
+                        $files[] = strtolower($newname);
+                    }
+                } else {
+                    $files[] = strtolower($name);
+                }
             }
         }
+        //desc($files);
         return $files;
     }
 
     protected function addResources($resources)
     {
-        for($i = 0; $i < count($resources); $i++){
+        for ($i = 0; $i < count($resources); $i++) {
             $this->acl->addResource(new Zend_Acl_Resource($resources[$i]));
         }
     }

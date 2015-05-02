@@ -102,6 +102,23 @@ return array(
             ),
         ),
         
+        'comments-ajax' => array(
+            'route' => 'comments-ajax/id/:id',
+            'defaults' => array(
+                'controller' => 'comments-ajax',
+                'action' => 'index',
+                'id' => 0,
+            ),
+        ),
+        
+        'comments-ajax-get' => array(
+            'route' => 'comments-ajax-get',
+            'defaults' => array(
+                'controller' => 'comments-ajax',
+                'action' => 'get-comments',
+            ),
+        ),
+        
         'cookies' => array(
             'route' => '/cookies/id/:id/category-id/:category-id/page/:page/c/:c/a/:a/e/:e/m/:m/scroll/:scroll',
             'defaults' => array(

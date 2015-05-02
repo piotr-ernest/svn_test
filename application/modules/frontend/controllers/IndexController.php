@@ -50,7 +50,7 @@ class IndexController extends CloutWork_Controller_Standard
         $commentsResults = $modelComments->getCommentsById($articleId, $commentsLimit, $cPage);
         $paginationCount = $commentsResults['total']['count'];
         
-        $this->view->comments = $commentsResults['query'];
+        //$this->view->comments = $commentsResults['query'];
         $this->view->article = $modelArticle->getArticleById($articleId);
         $this->view->form = $form;
         
@@ -64,7 +64,7 @@ class IndexController extends CloutWork_Controller_Standard
             $this->view->scroll = true;
         }
         
-        $this->view->pagination = $this->pagination((int) $paginationCount, $commentsLimit, $cPage, 'app-partials/pagination/commentsIndex.phtml');
+        //$this->view->pagination = $this->pagination((int) $paginationCount, $commentsLimit, $cPage, 'app-partials/pagination/commentsIndex.phtml');
         
     }
 

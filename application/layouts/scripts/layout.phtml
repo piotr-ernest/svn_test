@@ -13,6 +13,7 @@
         <?php $this->headLink()->appendStylesheet($this->baseUrl('css/mainStyle.css'), 'screen') ?>
         <?php echo $this->headLink(); ?>
         <?php $this->headScript()->appendFile($this->baseUrl('jquery/jquery-1.11.js')) ?>
+        <?php $this->headLink()->prependStylesheet($this->baseUrl('jquery-ui-1.11.4/jquery-ui.css', 'screen')); ?>
         <?php echo $this->globalsJS(); ?>
         <?php $this->headScript()->appendFile($this->baseUrl('bootstrap-3.2.0-dist/js/bootstrap.min.js')) ?>
         <?php $this->headScript()->appendFile($this->baseUrl('js/mainScript.js')) ?>

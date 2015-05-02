@@ -216,6 +216,12 @@ h1, h2, h3, h4 {
     //box-shadow: 0.25em 0.25em 0.25em 0.08em #ccccff;
 }
 
+.comments-ajax-iframe {
+    background: #cccccc;
+    border-radius: 5px;
+    border: 1px solid #ccccff;
+}
+
 .pagination-box {
     position: relative;
     margin: 0 auto;
