@@ -32,6 +32,12 @@
             .pagin {
                 margin-right: 10px;
             }
+            
+            .pagin-dummy {
+                margin-right: 20px;
+                font-weight: bold;
+                margin-left: 20px;
+            }
 
             #pagination {
                 margin-bottom: 50px;
@@ -104,9 +110,6 @@
                         }
                     });
 
-
-                    //window.location.reload();
-
                 });
 
 
@@ -114,7 +117,7 @@
 
             function getAllComments(res)
             {
-                //console.log(res);
+                
                 var parsed = JSON.parse(res);
                 $('#hook').html('');
                 var query = parsed.query;
@@ -129,7 +132,6 @@
 //                    console.log(buttonsNumber);
 
                     var counter = (commentsPerPage < parsed.total.count) ? commentsPerPage : parsed.total.count;
-                    //console.log('counter= ' + counter);
 
                     for (var i = 0; i < counter; i++) {
 
@@ -178,7 +180,7 @@
                         }
                         
                         if(start > 1){
-                            $('#pagination').append('<a class="btn btn-info pagin" href="#">1</a><a class="btn pagin" href="javascript:void(0);"> ... </a>');
+                            $('#pagination').append('<a class="btn btn-info pagin" href="#">1</a><a class="btn pagin-dummy" href="javascript:void(0)"> ... </a>');
                         }
                         
                         for(var i = start; i <= stop; i++){
@@ -188,7 +190,7 @@
                         }
                         
                         if(stop < buttonsNumber){
-                            $('#pagination').append('<a class="btn pagin" href="javascript:void(0);"> ... </a><a class="btn btn-info pagin" href="#">' + buttonsNumber + '</a>');
+                            $('#pagination').append('<a class="btn pagin-dummy" href="javascript:void(0)"> ... </a><a class="btn btn-info pagin" href="#">' + buttonsNumber + '</a>');
                         }
                         
                     }

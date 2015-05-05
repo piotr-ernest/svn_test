@@ -423,4 +423,112 @@ TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Sele
 #11 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\frontend\index.php(46): Zend_Application->run()
 #12 {main}
 TRESC: LIMIT argument offset=-3 is not valid
+======================================================================================
+DATA: 2015-05-02 22:53:32
+PLIK: E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Mysql.php
+LINIA: 261
+TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(1277): Zend_Db_Adapter_Pdo_Mysql->limit('SELECT `comment...', 3, -3)
+#1 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(705): Zend_Db_Select->_renderLimitoffset('SELECT `comment...')
+#2 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Abstract.php(468): Zend_Db_Select->assemble()
+#3 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\library\CloutWork\Admin\Model\Comments.php(31): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select))
+#5 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\modules\frontend\controllers\CommentsAjaxController.php(44): CloutWork_Admin_Model_Comments->getCommentsById(123, 3, 0)
+#6 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Action.php(516): CommentsAjaxController->getCommentsAction()
+#7 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('getCommentsActi...')
+#8 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application\Bootstrap\Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\frontend\index.php(46): Zend_Application->run()
+#12 {main}
+TRESC: LIMIT argument offset=-3 is not valid
+======================================================================================
+DATA: 2015-05-02 22:53:36
+PLIK: E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Mysql.php
+LINIA: 261
+TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(1277): Zend_Db_Adapter_Pdo_Mysql->limit('SELECT `comment...', 3, -3)
+#1 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(705): Zend_Db_Select->_renderLimitoffset('SELECT `comment...')
+#2 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Abstract.php(468): Zend_Db_Select->assemble()
+#3 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\library\CloutWork\Admin\Model\Comments.php(31): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select))
+#5 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\modules\frontend\controllers\CommentsAjaxController.php(44): CloutWork_Admin_Model_Comments->getCommentsById(123, 3, 0)
+#6 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Action.php(516): CommentsAjaxController->getCommentsAction()
+#7 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('getCommentsActi...')
+#8 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application\Bootstrap\Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\frontend\index.php(46): Zend_Application->run()
+#12 {main}
+TRESC: LIMIT argument offset=-3 is not valid
+======================================================================================
+DATA: 2015-05-02 22:56:39
+PLIK: E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Mysql.php
+LINIA: 261
+TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(1277): Zend_Db_Adapter_Pdo_Mysql->limit('SELECT `comment...', 3, -3)
+#1 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(705): Zend_Db_Select->_renderLimitoffset('SELECT `comment...')
+#2 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Abstract.php(468): Zend_Db_Select->assemble()
+#3 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\library\CloutWork\Admin\Model\Comments.php(31): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select))
+#5 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\modules\frontend\controllers\CommentsAjaxController.php(44): CloutWork_Admin_Model_Comments->getCommentsById(123, 3, 0)
+#6 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Action.php(516): CommentsAjaxController->getCommentsAction()
+#7 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('getCommentsActi...')
+#8 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application\Bootstrap\Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\frontend\index.php(46): Zend_Application->run()
+#12 {main}
+TRESC: LIMIT argument offset=-3 is not valid
+======================================================================================
+DATA: 2015-05-02 22:59:59
+PLIK: E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Mysql.php
+LINIA: 261
+TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(1277): Zend_Db_Adapter_Pdo_Mysql->limit('SELECT `comment...', 3, -3)
+#1 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(705): Zend_Db_Select->_renderLimitoffset('SELECT `comment...')
+#2 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Abstract.php(468): Zend_Db_Select->assemble()
+#3 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\library\CloutWork\Admin\Model\Comments.php(31): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select))
+#5 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\modules\frontend\controllers\CommentsAjaxController.php(44): CloutWork_Admin_Model_Comments->getCommentsById(123, 3, 0)
+#6 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Action.php(516): CommentsAjaxController->getCommentsAction()
+#7 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('getCommentsActi...')
+#8 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application\Bootstrap\Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\frontend\index.php(46): Zend_Application->run()
+#12 {main}
+TRESC: LIMIT argument offset=-3 is not valid
+======================================================================================
+DATA: 2015-05-02 23:01:00
+PLIK: E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Mysql.php
+LINIA: 261
+TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(1277): Zend_Db_Adapter_Pdo_Mysql->limit('SELECT `comment...', 3, -3)
+#1 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(705): Zend_Db_Select->_renderLimitoffset('SELECT `comment...')
+#2 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Abstract.php(468): Zend_Db_Select->assemble()
+#3 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\library\CloutWork\Admin\Model\Comments.php(31): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select))
+#5 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\modules\frontend\controllers\CommentsAjaxController.php(44): CloutWork_Admin_Model_Comments->getCommentsById(123, 3, 0)
+#6 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Action.php(516): CommentsAjaxController->getCommentsAction()
+#7 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('getCommentsActi...')
+#8 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application\Bootstrap\Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\frontend\index.php(46): Zend_Application->run()
+#12 {main}
+TRESC: LIMIT argument offset=-3 is not valid
+======================================================================================
+DATA: 2015-05-02 23:05:35
+PLIK: E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Mysql.php
+LINIA: 261
+TRACE: #0 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(1277): Zend_Db_Adapter_Pdo_Mysql->limit('SELECT `comment...', 3, -3)
+#1 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Select.php(705): Zend_Db_Select->_renderLimitoffset('SELECT `comment...')
+#2 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Abstract.php(468): Zend_Db_Select->assemble()
+#3 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Db\Adapter\Pdo\Abstract.php(238): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Select), Array)
+#4 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\library\CloutWork\Admin\Model\Comments.php(31): Zend_Db_Adapter_Pdo_Abstract->query(Object(Zend_Db_Select))
+#5 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\application\modules\frontend\controllers\CommentsAjaxController.php(44): CloutWork_Admin_Model_Comments->getCommentsById(123, 3, 0)
+#6 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Action.php(516): CommentsAjaxController->getCommentsAction()
+#7 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Dispatcher\Standard.php(308): Zend_Controller_Action->dispatch('getCommentsActi...')
+#8 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Controller\Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application\Bootstrap\Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\library\Zend\Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 E:\PROGRAMY\xampp\htdocs\zf\ZendFramework-1.12.10\zfp1\public\frontend\index.php(46): Zend_Application->run()
+#12 {main}
+TRESC: LIMIT argument offset=-3 is not valid
 ===========================================
